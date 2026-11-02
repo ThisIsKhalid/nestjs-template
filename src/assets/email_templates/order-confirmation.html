@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation #{{orderNumber}}</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #333333;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #f4f6f8;
+      padding: 40px 0;
+    }
+    .main-table {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .header {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      padding: 36px 30px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      font-weight: 700;
+    }
+    .content {
+      padding: 40px 32px;
+      line-height: 1.6;
+      color: #475569;
+    }
+    .greeting {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    .order-meta {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 16px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+    .items-table th {
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .items-table td {
+      padding: 12px 0;
+      font-size: 14px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+    .summary-table {
+      width: 100%;
+      margin: 20px 0;
+    }
+    .summary-table td {
+      padding: 6px 0;
+      font-size: 14px;
+      color: #64748b;
+    }
+    .summary-table .total-row td {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      border-top: 2px solid #e2e8f0;
+      padding-top: 12px;
+    }
+    .button-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #10b981;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 6px;
+    }
+    .footer {
+      background-color: #f8fafc;
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table class="main-table" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="header">
+          <h1>{{companyName}}</h1>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+          <p class="greeting">Thank you for your order! 🎉</p>
+          <p>Hi {{name}}, your order has been received and is now being processed. We will notify you once it's on its way.</p>
+
+          <table width="100%" style="background-color: #f8fafc; border-radius: 6px; padding: 12px; margin: 16px 0;" cellpadding="8">
+            <tr>
+              <td><strong>Order Number:</strong> #{{orderNumber}}</td>
+              <td align="right"><strong>Order Date:</strong> {{orderDate}}</td>
+            </tr>
+          </table>
+
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th align="center">Qty</th>
+                <th align="right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{itemsHtml}}
+            </tbody>
+          </table>
+
+          <table class="summary-table">
+            <tr>
+              <td>Subtotal</td>
+              <td align="right">{{subtotal}}</td>
+            </tr>
+            <tr>
+              <td>Shipping</td>
+              <td align="right">{{shipping}}</td>
+            </tr>
+            {{#if discount}}
+            <tr>
+              <td>Discount</td>
+              <td align="right">-{{discount}}</td>
+            </tr>
+            {{/if}}
+            <tr class="total-row">
+              <td>Total</td>
+              <td align="right">{{total}}</td>
+            </tr>
+          </table>
+
+          {{#if shippingAddress}}
+          <div style="background-color: #f8fafc; padding: 16px; border-radius: 6px; margin-top: 24px;">
+            <strong style="color: #1e293b; font-size: 14px;">Shipping Address:</strong>
+            <p style="margin: 6px 0 0 0; font-size: 13px; color: #64748b; line-height: 1.5;">{{shippingAddress}}</p>
+          </div>
+          {{/if}}
+
+          {{#if orderUrl}}
+          <div class="button-container">
+            <a href="{{orderUrl}}" class="cta-button" target="_blank">View Your Order</a>
+          </div>
+          {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+          <p style="margin: 0 0 8px 0;">&copy; {{year}} {{companyName}}. All rights reserved.</p>
+          <p style="margin: 0;">Have a question? Contact our support team anytime.</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
