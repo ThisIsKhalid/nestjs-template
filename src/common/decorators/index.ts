@@ -5,3 +5,6 @@ export * from './response-message.decorator.js';
 export * from './client-ip.decorator.js';
 export * from './skip-rate-limit.decorator.js';
 export * from './bypass-response.decorator.js';
+
+export * from './platform-admin.decorator.js';
+

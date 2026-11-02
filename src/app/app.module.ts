@@ -6,6 +6,8 @@ import { GlobalExceptionFilter } from '../common/filters/global-exception.filter
 import { ResponseInterceptor } from '../common/interceptors/response.interceptor.js';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { AppLoggerModule } from '../core/services/logger/logger.module.js';
+import { PermissionsGuard } from '../common/guards/permissions.guard.js';
+import { PlatformAdminGuard } from '../common/guards/platform-admin.guard.js';
 
 @Module({
   imports: [
@@ -26,6 +28,14 @@ import { AppLoggerModule } from '../core/services/logger/logger.module.js';
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: PermissionsGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: PlatformAdminGuard,
     },
   ],
 })
