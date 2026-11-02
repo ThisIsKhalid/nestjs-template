@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to {{companyName}}</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #333333;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #f4f6f8;
+      padding: 40px 0;
+    }
+    .main-table {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      padding: 36px 30px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      font-weight: 700;
+    }
+    .content {
+      padding: 40px 32px;
+      line-height: 1.6;
+      color: #475569;
+    }
+    .greeting {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .button-container {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #2563eb;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 6px;
+      letter-spacing: 0.2px;
+    }
+    .features-list {
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+    .features-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f5f9;
+      color: #64748b;
+      font-size: 14px;
+    }
+    .features-list li strong {
+      color: #334155;
+    }
+    .footer {
+      background-color: #f8fafc;
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+    }
+    .footer a {
+      color: #64748b;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table class="main-table" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="header">
+          <h1>{{companyName}}</h1>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+          <p class="greeting">Welcome aboard, {{name}}! 👋</p>
+          <p>Thank you for creating an account with {{companyName}}. We're thrilled to have you with us. Your account has been successfully created and you're ready to explore our catalog.</p>
+          
+          <ul class="features-list">
+            <li>✨ <strong>Discover exclusive products:</strong> Browse thousands of curated items.</li>
+            <li>🚀 <strong>Fast & secure checkout:</strong> Save your preferences for a seamless experience.</li>
+            <li>📦 <strong>Real-time order tracking:</strong> Stay updated at every step of delivery.</li>
+          </ul>
+
+          <div class="button-container">
+            <a href="{{exploreUrl}}" class="cta-button" target="_blank">Start Shopping</a>
+          </div>
+
+          <p style="font-size: 14px; color: #64748b; margin-top: 24px;">If you have any questions, feel free to reply to this email or visit our <a href="{{supportUrl}}" style="color: #2563eb;">Help Center</a>.</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+          <p style="margin: 0 0 8px 0;">&copy; {{year}} {{companyName}}. All rights reserved.</p>
+          <p style="margin: 0;">You received this email because you signed up on our platform.</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
