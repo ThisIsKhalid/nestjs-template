@@ -1,0 +1,31 @@
+enum UserStatus {
+  ACTIVE
+  INVITED
+  SUSPENDED
+}
+enum TenantStatus {
+  ACTIVE
+  SUSPENDED
+  CLOSED
+}
+enum PlatformRole {
+  SUPER_ADMIN
+}
+enum TenantRole {
+  ADMINISTRATOR
+  BROKER
+  SUPERVISOR
+  BILLING_STAFF
+  PARTICIPANT
+}
+enum BillingInterval {
+  MONTH
+  YEAR
+}
+enum SubscriptionStatus {
+  TRIALING
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  EXPIRED
+}

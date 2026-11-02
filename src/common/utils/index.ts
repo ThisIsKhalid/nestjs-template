@@ -5,3 +5,4 @@ export * from './query-builder.util.js';
 export * from './url.util.js';
 export * from './phone.util.js';
 export * from './optimized-storage.util.js';
+export * from './tenant-scope.util.js';
